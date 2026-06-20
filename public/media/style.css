@@ -1,0 +1,40 @@
+body {
+    background-color: #2D65B0;
+    color: #FFFCFE;
+}
+
+.custom-navbar {
+    background-color: #FF991A;
+}
+
+.custom-navbar .nav-link {
+    color: #2D65B0;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.custom-navbar .nav-link:hover {
+    color: #ffffff;
+}
+
+.digi-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #FF991A;
+    border-radius: 15px;
+}
+
+.digi-title {
+    color: #FF991A;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.card-link {
+    color: #FF991A;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.card-link:hover {
+    color: #FFFCFE;
+    text-decoration: underline;
+}
