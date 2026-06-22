@@ -45,8 +45,8 @@ class DigimonController extends Controller implements HasMiddleware
             'img' => $imagePath,
         ]);
 
-        if ($request->has('attribute_ids')) {
-            $digimon->attributes()->attach($request->input('attribute_ids'));
+        if ($request->has('attributes')) {
+            $digimon->attributes()->attach($request->input('attributes'));
         }
 
         return redirect()->route('home')->with('success', 'Digimon inserito con successo!');
@@ -76,7 +76,7 @@ class DigimonController extends Controller implements HasMiddleware
 
             $mon->save();
 
-            $mon->attributes()->sync($request->input('attribute_ids', []));
+            $mon->attributes()->sync($request->input('attributes', []));
 
             return redirect()->route('digimon.list')->with('success', 'Digimon modificato con successo!');
         } else {
