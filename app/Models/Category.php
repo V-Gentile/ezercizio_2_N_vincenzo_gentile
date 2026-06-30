@@ -6,7 +6,7 @@ use App\Models\Digimon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Attribute extends Model
+class Category extends Model
 {
     use HasFactory;
 

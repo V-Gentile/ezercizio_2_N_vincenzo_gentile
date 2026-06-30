@@ -1,5 +1,4 @@
 <x-layout>
-    <x-nav></x-nav>
     <div class="container my-5">
         <div class="row">
             <div class="col-12 mb-4">

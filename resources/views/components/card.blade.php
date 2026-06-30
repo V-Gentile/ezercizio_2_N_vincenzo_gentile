@@ -24,14 +24,18 @@
                 <strong>Tipo:</strong> 
                 <span class="badge bg-white text-dark text-capitalize">{{ $digimon->type }}</span>
             </li>
-            
             <li class="mb-2">
-                <strong>Attributi:</strong> 
-                @forelse($digimon->attributes as $attribute)
-                    <span class="badge bg-secondary text-capitalize">{{ $attribute->name }}</span>
-                @empty
-                    <span class="text-white-50 small">Nessuno</span>
-                @endforelse
+                <strong>Categoria:</strong>
+                <span class="badge bg-success text-dark text-capitalize">
+                    @forelse ($digimon->categories as $category)
+                        @if (!$loop->last)
+                            <a href="{{route('category.show', compact('category'))}}" class="card-text small text-capitalize mx-1">{{ $category->name }}, </a>
+                        @else
+                            <a href="{{route('category.show', compact('category'))}}" class="card-text small text-capitalize mx-1">{{ $category->name }} </a>
+                        @endif
+                    @empty
+                    @endforelse
+                </span>
             </li>
             <li class="small mt-2" style="color: #d1e0f5;">
                 <strong>Caricato da:</strong> <span class="text-capitalize">{{ $digimon->user?->name ?? 'Sconosciuto' }}</span>
@@ -40,19 +44,19 @@
 
         <div class="mt-auto pt-3 d-flex justify-content-between gap-1" style="border-top: 1px solid rgba(255, 255, 255, 0.2);">
             
-            <a href="{{ route('digimon.dettagli', ['mon' => $digimon]) }}" class="btn btn-sm fw-bold px-3 text-white" style="background-color: #FF991A; border: 1px solid #FF991A;">
+            <a href="{{ route('digimon.show', ['digimon' => $digimon]) }}" class="btn btn-sm fw-bold px-3 text-white" style="background-color: #FF991A; border: 1px solid #FF991A;">
                 Info
             </a>
 
-            <a href="{{ route('digimon.edit', ['mon' => $digimon]) }}" class="btn btn-sm btn-light fw-bold text-dark px-2">
+            <a href="{{ route('digimon.edit', ['digimon' => $digimon]) }}" class="btn btn-sm btn-light fw-bold text-dark px-2">
                 Modifica
             </a>
 
-            <form action="{{ route('digimon.destroy', ['mon' => $digimon]) }}" method="POST" class="d-inline" onsubmit="return confirm('Sei sicuro di voler eliminare questo Digimon?')">
+            <form action="{{ route('digimon.delete', ['digimon' => $digimon]) }}" method="POST" class="d-inline" onsubmit="return confirm('Sei sicuro di voler eliminare questo Digimon?')">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-sm btn-danger fw-bold">
-                  Elimina
+                Elimina
                 </button>
             </form>
             

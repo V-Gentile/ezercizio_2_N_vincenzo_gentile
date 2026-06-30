@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attribute_digimon', function (Blueprint $table) {
+        Schema::create('category_digimon', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('attribute_id');
-            $table->foreign('attribute_id')->references('id')->on('attributes');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
 
             $table->unsignedBigInteger('digimon_id');
             $table->foreign('digimon_id')->references('id')->on('digimons');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attribute_digimon');
+        Schema::dropIfExists('category_digimon');
     }
 };

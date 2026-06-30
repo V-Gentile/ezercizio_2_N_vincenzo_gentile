@@ -1,6 +1,4 @@
 <x-layout>
-    <x-nav></x-nav>
-
     <header>
         <div class="container mt-5 text-center">
             

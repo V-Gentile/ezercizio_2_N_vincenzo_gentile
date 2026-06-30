@@ -1,5 +1,4 @@
 <x-layout>
-    <x-nav></x-nav>
     <header>
         <div class="container-fluid header mt-5">
             <div class="row h-100 justify-content-center text-center">
